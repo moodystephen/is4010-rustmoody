@@ -14,3 +14,4 @@
 
 # VS Code (optional — keep if you want shared settings)
 # .vscode/
+node_modules/
