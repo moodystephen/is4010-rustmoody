@@ -1,0 +1,24 @@
+name: Week 09 - Rust basics
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'week09/**'
+      - '.github/workflows/week09.yml'
+  pull_request:
+    paths:
+      - 'week09/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Run tests
+        run: cd week09 && cargo test --verbose
+      - name: Check formatting
+        run: cd week09 && cargo fmt --check
+      - name: Run Clippy
+        run: cd week09 && cargo clippy -- -D warnings

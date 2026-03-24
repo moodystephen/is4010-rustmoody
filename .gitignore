@@ -1,0 +1,16 @@
+# Rust build output
+**/target/
+
+# Editor swap files
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# IntelliJ / CLion
+.idea/
+*.iml
+
+# VS Code (optional — keep if you want shared settings)
+# .vscode/

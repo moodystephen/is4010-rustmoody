@@ -1,0 +1,24 @@
+name: Week 14 - CLI application (capstone)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'week14/**'
+      - '.github/workflows/week14.yml'
+  pull_request:
+    paths:
+      - 'week14/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Run tests
+        run: cd week14 && cargo test --verbose
+      - name: Check formatting
+        run: cd week14 && cargo fmt --check
+      - name: Run Clippy
+        run: cd week14 && cargo clippy -- -D warnings
