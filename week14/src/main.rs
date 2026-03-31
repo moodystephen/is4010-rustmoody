@@ -74,25 +74,30 @@ fn main() {
 
     match cli.command {
         Commands::Random { length, symbols } => {
-            // TODO: call generate_random(length, symbols) and print the result
-            // Bonus: also print the entropy using calculate_entropy()
-            todo!("Handle the `random` subcommand")
+            let pwd = generate_random(length, symbols);
+            let entropy = calculate_entropy(&pwd);
+            println!("Password: {}", pwd);
+            println!("Entropy: {:.2} bits", entropy);
         }
 
         Commands::Passphrase { words, separator } => {
-            // TODO: call generate_passphrase(words, separator) and print the result
-            todo!("Handle the `passphrase` subcommand")
+            let phrase = generate_passphrase(words, separator);
+            println!("Passphrase: {}", phrase);
         }
 
         Commands::Pin { length } => {
-            // TODO: call generate_pin(length) and print the result
-            todo!("Handle the `pin` subcommand")
+            let pin = generate_pin(length);
+            println!("PIN: {}", pin);
         }
 
         Commands::Validate { password } => {
-            // TODO: call validate_strength(&password) and check_common_patterns(&password)
-            // Print the strength and warn if a common pattern is detected
-            todo!("Handle the `validate` subcommand")
+            let strength = validate_strength(&password);
+            let common = check_common_patterns(&password);
+            println!("Password strength: {}", strength);
+            if common {
+                println!("Warning: common weak pattern detected");
+            }
         }
     }
 }
+
