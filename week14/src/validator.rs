@@ -93,7 +93,10 @@ pub fn check_common_patterns(password: &str) -> bool {
         return false;
     }
 
-    if normalized.chars().all(|c| c == normalized.chars().next().unwrap()) {
+    if normalized
+        .chars()
+        .all(|c| c == normalized.chars().next().unwrap())
+    {
         return true;
     }
 
@@ -129,8 +132,6 @@ pub fn calculate_entropy(password: &str) -> f64 {
         62
     } else if has_upper {
         52
-    } else if has_lower {
-        26
     } else {
         26
     };

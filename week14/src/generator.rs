@@ -24,7 +24,8 @@ use rand::Rng;
 pub fn generate_random(length: usize, use_symbols: bool) -> String {
     assert!(length > 0, "Password length must be greater than 0");
 
-    let mut charset = String::from("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+    let mut charset =
+        String::from("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
     if use_symbols {
         charset.push_str("!@#$%^&*");
     }
